@@ -6,7 +6,15 @@ const {
 } = require("./src/controllers/homeController");
 const { paginaContato } = require("./src/controllers/contatoController");
 
-route.get("/", paginaInicial);
+function meuMiddleware(req, res, next) {
+  console.log("passei no meddleware");
+  next();
+}
+
+function meuMiddleware2(req, res, next) {
+  console.log("passei no meddleware 2");
+}
+route.get("/", meuMiddleware, paginaInicial, meuMiddleware2);
 route.post("/", trataPost);
 
 route.get("/contatos", paginaContato);
