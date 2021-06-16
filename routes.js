@@ -1,7 +1,10 @@
 const express = require("express");
 const route = express.Router();
-const { paginaInicial, trataPost } = require("./controllers/homeController");
-const { paginaContato } = require("./controllers/contatoController");
+const {
+  paginaInicial,
+  trataPost,
+} = require("./src/controllers/homeController");
+const { paginaContato } = require("./src/controllers/contatoController");
 
 route.get("/", paginaInicial);
 route.post("/", trataPost);
